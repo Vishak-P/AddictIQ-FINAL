@@ -32,24 +32,29 @@ METRICS_PATH = "metrics.json"
 # ──────────────────────────────────────────────
 # MYSQL CONFIG
 # ──────────────────────────────────────────────
-DB_CONFIG = {
-    "host":     os.environ.get("MYSQL_HOST",     "localhost"),
-    "port":     int(os.environ.get("MYSQL_PORT", 3306)),
-    "user":     os.environ.get("MYSQL_USER",     "root"),
-    "password": os.environ.get("MYSQL_PASSWORD", ""),
-    "database": os.environ.get("MYSQL_DATABASE", "addictiq"),
-}
+def get_db_config():
+    """Read DB config fresh from env each time."""
+    return {
+        "host":     os.environ.get("MYSQL_HOST",     "localhost"),
+        "port":     int(os.environ.get("MYSQL_PORT", 3306)),
+        "user":     os.environ.get("MYSQL_USER",     "root"),
+        "password": os.environ.get("MYSQL_PASSWORD", ""),
+        "database": os.environ.get("MYSQL_DATABASE", "addictiq"),
+    }
+
+# Keep DB_CONFIG as a property for /db-check route compatibility
+DB_CONFIG = get_db_config()
 
 
 def get_db():
     """Open a new MySQL connection."""
-    return mysql.connector.connect(**DB_CONFIG)
+    return mysql.connector.connect(**get_db_config())
 
 
 def init_db():
     """Create database and predictions table if they don't exist."""
     try:
-        cfg = {**DB_CONFIG}
+        cfg = get_db_config()
         db_name = cfg.pop("database")
         conn = mysql.connector.connect(**cfg)
         cur  = conn.cursor()
@@ -226,11 +231,11 @@ def predict():
 
         return jsonify(result)
 
-    except FileNotFoundError as exc:
-        logger.error("Model not found: %s", exc)
-        return jsonify({"success": False, "error": str(exc)}), 503
+    except FileNotFoundError as e:
+        logger.error("Model not found: %s", e)
+        return jsonify({"success": False, "error": str(e)}), 503
 
-    except Exception as exc:
+    except Exception:
         logger.exception("Unexpected error during prediction")
         return jsonify({"success": False, "error": "Internal server error"}), 500
 

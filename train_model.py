@@ -6,7 +6,6 @@ Author  : ML/DevOps Engineer
 Purpose : Train, evaluate, and persist the best classification model.
 """
 
-import os
 import json
 import pickle
 import warnings
@@ -15,7 +14,7 @@ import pandas as pd
 from sklearn.ensemble import RandomForestClassifier, GradientBoostingClassifier
 from sklearn.linear_model import LogisticRegression
 from sklearn.model_selection import train_test_split, cross_val_score
-from sklearn.preprocessing import StandardScaler, LabelEncoder
+from sklearn.preprocessing import StandardScaler
 from sklearn.metrics import (
     accuracy_score,
     classification_report,
