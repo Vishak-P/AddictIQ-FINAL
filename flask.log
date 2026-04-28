@@ -1,0 +1,48 @@
+INFO | package: mysql.connector.plugins
+INFO | plugin_name: caching_sha2_password
+INFO | AUTHENTICATION_PLUGIN_CLASS: MySQLCachingSHA2PasswordAuthPlugin
+INFO | Database initialised.
+ * Serving Flask app 'app'
+ * Debug mode: off
+INFO | [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:5000
+ * Running on http://10.254.159.148:5000
+INFO | [33mPress CTRL+C to quit[0m
+INFO | 127.0.0.1 - - [28/Apr/2026 09:50:36] "GET / HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:50:36] "GET /static/style.css HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:50:36] "GET /static/script.js HTTP/1.1" 200 -
+INFO | Metrics loaded from metrics.json
+INFO | 127.0.0.1 - - [28/Apr/2026 09:50:37] "GET /metrics HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:50:37] "GET /history HTTP/1.1" 200 -
+INFO | Model loaded from model.pkl
+INFO | Prediction: Not Addicted (confidence=99.8%) | inputs=[21.0, 3.0, 2.0, 4.0, 7.0]
+INFO | 127.0.0.1 - - [28/Apr/2026 09:52:00] "POST /predict HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:52:01] "GET /history HTTP/1.1" 200 -
+INFO | Prediction: Not Addicted (confidence=98.5%) | inputs=[20.0, 4.0, 4.0, 6.0, 8.5]
+INFO | 127.0.0.1 - - [28/Apr/2026 09:52:52] "POST /predict HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:52:52] "GET /history HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:25] "GET /history HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:38] "[33mGET /predictions HTTP/1.1[0m" 404 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:46] "[33mGET /prediction HTTP/1.1[0m" 404 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:52] "GET / HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:52] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:52] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:52] "GET /metrics HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 09:53:52] "GET /history HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 10:56:53] "GET / HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 10:56:53] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 10:56:53] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 10:56:53] "GET /metrics HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 10:56:54] "GET /history HTTP/1.1" 200 -
+INFO | Prediction: Not Addicted (confidence=95.1%) | inputs=[20.0, 6.0, 7.0, 3.0, 8.0]
+INFO | 127.0.0.1 - - [28/Apr/2026 12:01:29] "POST /predict HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 12:01:29] "GET /history HTTP/1.1" 200 -
+INFO | Prediction: Not Addicted (confidence=97.9%) | inputs=[26.0, 6.0, 7.0, 3.0, 8.0]
+INFO | 127.0.0.1 - - [28/Apr/2026 12:01:42] "POST /predict HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 12:01:42] "GET /history HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 13:17:51] "GET / HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 13:17:51] "[36mGET /static/script.js HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 13:17:51] "[36mGET /static/style.css HTTP/1.1[0m" 304 -
+INFO | 127.0.0.1 - - [28/Apr/2026 13:17:52] "GET /metrics HTTP/1.1" 200 -
+INFO | 127.0.0.1 - - [28/Apr/2026 13:17:52] "GET /history HTTP/1.1" 200 -
