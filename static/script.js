@@ -308,28 +308,29 @@ async function loadMetrics() {
 // HISTORY
 // ──────────────────────────────────────────────
 async function loadHistory() {
+  const tbody = document.getElementById("history-body");
   try {
     const res  = await fetch("/history");
     const json = await res.json();
-    const tbody = document.getElementById("history-body");
     if (!json.success || !json.history.length) {
       tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-dim)">No predictions yet.</td></tr>`;
       return;
     }
-    tbody.innerHTML = json.history.map(r => `
+    tbody.innerHTML = json.history.map((r, i) => `
       <tr>
-        <td>${r.id}</td>
+        <td>${i + 1}</td>
         <td>${r.age}</td>
         <td>${r.daily_usage_hours}</td>
         <td>${r.social_media_apps}</td>
         <td>${r.screen_time}</td>
         <td>${r.sleep_hours}</td>
-        <td><span class="acc-pill ${r.prediction === 'Addicted' ? 'acc-low' : 'acc-high'}">${r.prediction}</span></td>
+        <td><span class="acc-pill ${r.prediction === 'Addicted' ? 'pill-danger' : 'acc-high'}">${r.prediction}</span></td>
         <td>${r.confidence}%</td>
         <td>${r.created_at}</td>
       </tr>`).join("");
   } catch (err) {
     console.error("Failed to load history:", err);
+    tbody.innerHTML = `<tr><td colspan="9" style="text-align:center;color:var(--text-dim)">Could not load history.</td></tr>`;
   }
 }
 

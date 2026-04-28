@@ -266,7 +266,7 @@ def history():
                    addicted_prob, not_addicted_prob,
                    DATE_FORMAT(created_at, '%Y-%m-%d %H:%i:%s') AS created_at
             FROM predictions
-            ORDER BY created_at ASC
+            ORDER BY created_at DESC
             LIMIT 50
         """)
         rows = cur.fetchall()
