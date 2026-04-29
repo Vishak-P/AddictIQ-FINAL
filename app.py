@@ -251,7 +251,7 @@ def metrics():
         if not data:
             return jsonify({"error": "Metrics file not found"}), 404
         return jsonify(data)
-    except Exception as exc:
+    except Exception:
         logger.exception("Error loading metrics")
         return jsonify({"error": "Could not load metrics"}), 500
 

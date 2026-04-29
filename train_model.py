@@ -21,7 +21,6 @@ from sklearn.metrics import (
     confusion_matrix,
 )
 from sklearn.pipeline import Pipeline
-
 warnings.filterwarnings("ignore")
 
 # ──────────────────────────────────────────────
@@ -106,20 +105,15 @@ def train_and_evaluate(X, y):
     models   = build_models()
     results  = {}
     best_name, best_model, best_acc = None, None, -1
-
     print("=" * 60)
     print("  MODEL TRAINING & EVALUATION")
     print("=" * 60)
-
     for name, pipeline in models.items():
         print(f"\n[MODEL] {name}")
-
         # --- Train ---
         pipeline.fit(X_train, y_train)
-
         # --- Predict ---
         y_pred = pipeline.predict(X_test)
-
         # --- Metrics ---
         acc    = accuracy_score(y_test, y_pred)
         cm     = confusion_matrix(y_test, y_pred).tolist()
